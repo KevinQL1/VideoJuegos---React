@@ -3,7 +3,7 @@ import CartWidget from "./CartWidget";
 const NavBar = () => {
   return (
     <div
-      className="navbar bg-base-200 fixed top-0 left-0 right-0"
+      className="navbar bg-indigo-300 fixed top-0 left-0 right-0"
       style={{ zIndex: 1 }}
     >
       <div className="flex-1">
