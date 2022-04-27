@@ -26,10 +26,6 @@ const ItemCount = ({videoPrice}) => {
 
   return (
     <>
-    <div>
-        <h2 className="card-title">Price</h2>
-        <ol>${videoPrice} COP</ol>
-      </div>
       <div className="card-actions justify-end">
         <button
           className="btn btn-sm btn-outline btn-success"

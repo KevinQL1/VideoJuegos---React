@@ -1,4 +1,5 @@
-[{
+export const dataPrice = [
+    {
         "id": "1",
         "value": "100.000"
     },

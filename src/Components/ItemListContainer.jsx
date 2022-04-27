@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ItemDetailContainer from "./ItemDetailContainer";
+import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
   const [games, setGames] = useState([]);
@@ -28,7 +28,7 @@ const ItemListContainer = () => {
   return (
     <div>
       {games.map((products) => (
-        <ItemDetailContainer videoGames={products} key={products.id} />
+        <ItemList videoGames={products} key={products.id} />
       ))}
     </div>
   );

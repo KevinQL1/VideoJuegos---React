@@ -1,6 +1,8 @@
 import ItemCount from "./ItemCount";
+import  Item  from "./Item";
 
-const ItemDetailContainer = ({ videoGames, videoPrice }) => {
+const ItemList = ({ videoGames }) => {
+  
   return (
     <>
       <div className="menu menu-horizontal m-7">
@@ -33,6 +35,7 @@ const ItemDetailContainer = ({ videoGames, videoPrice }) => {
                 </li>
               ))}
             </div>
+            <Item />
             <ItemCount />
           </div>
         </div>
@@ -40,4 +43,4 @@ const ItemDetailContainer = ({ videoGames, videoPrice }) => {
     </>
   );
 };
-export default ItemDetailContainer;
+export default ItemList;
