@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
-const ItemCount = ({videoPrice}) => {
+const ItemCount = () => {
   const [count, setCount] = useState(1);
 
   const addHandler = () => {
@@ -42,7 +42,7 @@ const ItemCount = ({videoPrice}) => {
         </button>
       </div>
       <button className="btn btn-sm btn-outline btn-primary" onClick={onAdd}>  
-        Añadir al carrito
+        Agregar al carrito
       </button>
     </>
   );

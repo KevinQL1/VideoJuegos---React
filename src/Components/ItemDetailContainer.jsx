@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import ItemList from "./ItemList";
 
-const ItemListContainer = () => {
+import { useEffect, useState } from "react";
+import ItemDetail from "./ItemDetail";
+
+const ItemDetailContainer = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -22,16 +23,16 @@ const ItemListContainer = () => {
         .then((data) => {
           setGames(data.results);
         });
-    }, 3000);
+    }, 2000);
   };
 
   return (
     <div>
       {games.map((products) => (
-        <ItemList videoGames={products} key={products.id} />
+        <ItemDetail videoGames={products} key={products.id} />
       ))}
     </div>
   );
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;
