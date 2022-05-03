@@ -19,8 +19,13 @@ const ItemCount = () => {
   };
 
   const onAdd = () => {
-    if (count >= 1) {
+    if (count >= 1 && count <= 11) {
       alert(`Agregaste ${count} productos`);
+    }
+    if (count === 12) {
+      alert(
+        `Agregaste ${count} productos, obtienes una promoción del 25% en el costo total de tu compra`
+      );
     }
   };
 
@@ -41,8 +46,8 @@ const ItemCount = () => {
           <FontAwesomeIcon icon={faMinus} />
         </button>
       </div>
-      <button className="btn btn-sm btn-outline btn-primary" onClick={onAdd}>  
-        Agregar al carrito
+      <button className="btn btn-sm btn-outline btn-primary" onClick={onAdd}>
+        Agregar al Carrito
       </button>
     </>
   );

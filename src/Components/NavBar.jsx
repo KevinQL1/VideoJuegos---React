@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 const NavBar = () => {
@@ -8,25 +9,23 @@ const NavBar = () => {
     >
       <div className="flex-1">
         <button href="#" className="btn btn-outline normal-case text-lg">
-          VideoJuegos
+          <Link to={"/"}>VideoJuegos</Link>
         </button>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0 pl-3">
           <li>
-            <button>Inicio</button>
+            <button>
+              <Link to={"/"}>Inicio</Link>
+            </button>
           </li>
           <li>
-            <button>Catálogo</button>
+            <button>
+              <Link to={"/catalogo"}>Catálogo</Link>
+            </button>
           </li>
           <li>
             <button>Carrito {<CartWidget />}</button>
-          </li>
-          <li>
-            <button>Registrarse</button>
-          </li>
-          <li>
-            <button>Iniciar sesión</button>
           </li>
         </ul>
       </div>
