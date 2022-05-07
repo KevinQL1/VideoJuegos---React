@@ -1,4 +1,4 @@
-import ItemCount from "./ItemCount";
+import ItemCountContainer from "./ItemCountContainer";
 
 const ItemDetail = ({ findGames }) => {
   const estilos = {
@@ -47,7 +47,7 @@ const ItemDetail = ({ findGames }) => {
               </li>
             </div>
             <div className="card-actions justify-end">
-              <ItemCount />
+              <ItemCountContainer />
             </div>
           </div>
         </div>

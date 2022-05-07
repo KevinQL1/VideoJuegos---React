@@ -15,17 +15,13 @@ const NavBar = () => {
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0 pl-3">
           <li>
-            <button>
-              <Link to={"/"}>Inicio</Link>
-            </button>
+            <Link to={"/"}>Inicio</Link>
           </li>
           <li>
-            <button>
-              <Link to={"/catalogo"}>Catálogo</Link>
-            </button>
+            <Link to={"/catalogo"}>Catálogo</Link>
           </li>
           <li>
-            <button>Carrito {<CartWidget />}</button>
+            <Link to={"/cart"}>Carrito {<CartWidget />}</Link>
           </li>
         </ul>
       </div>

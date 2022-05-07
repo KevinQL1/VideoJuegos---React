@@ -4,7 +4,7 @@ const Item = ({ videoGames }) => {
   const estilos = {
     width: "50%",
     padding: "0 2rem 0 2rem",
-    height: "50rem"
+    height: "50rem",
   };
 
   return (
@@ -25,11 +25,16 @@ const Item = ({ videoGames }) => {
             <h2 className="card-title mx-auto">{videoGames.name}</h2>
             <div>
               <h2 className="card-title mr-2 mt-0 mb-0">Description</h2>
-              <ol className="menu menu-horizontal mr-1">{videoGames.description}</ol>
+              <ol className="menu menu-horizontal mr-1">
+                {videoGames.description}
+              </ol>
             </div>
-            <button className="btn btn-sm btn-outline btn-primary">
-              <Link to={`/catalogo/${videoGames.id}`}>Ver Más</Link>
-            </button>
+            <Link
+              className="btn btn-sm btn-outline btn-primary"
+              to={`/catalogo/${videoGames.id}`}
+            >
+              Ver Más
+            </Link>
           </div>
         </div>
       </div>

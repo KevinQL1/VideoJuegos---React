@@ -2,8 +2,9 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import swal from "sweetalert";
 
-const ItemCount = () => {
+const ItemCount = ({ alertGames }) => {
   const [count, setCount] = useState(1);
 
   const addHandler = () => {
@@ -19,28 +20,45 @@ const ItemCount = () => {
   };
 
   const onAdd = () => {
+    const suma = count * alertGames.price;
     if (count >= 1 && count <= 11) {
-      alert(`Agregaste ${count} productos`);
+      swal(
+        `Agregaste ${count} producto(s) de ${alertGames.name}. Total de su compra es: $${suma}.000 COP`,
+        {
+          icon: "success",    
+          buttons: "Realizar compra", 
+        }
+      ).then(() =>{
+        window.location = "http://localhost:3000/cart"
+      })
     }
     if (count === 12) {
-      alert(
-        `Agregaste ${count} productos, obtienes una promoción del 25% en el costo total de tu compra`
-      );
+      const sumaPromocion = (suma * 25) / 100;
+      const descuento = suma - sumaPromocion;
+      swal(
+        `Agregaste ${count} producto(s) de ${alertGames.name}. Optienes un descuento del 25% en el total de su compra, que es: $${descuento}.000 COP`,
+        {
+          icon: "success",
+          buttons: "Realizar compra",
+        }
+      ).then(() =>{
+        window.location = "http://localhost:3000/cart"
+      })
     }
   };
 
   return (
     <>
-      <div className="card-actions justify-end">
+      <div className="card-actions justify-end bottom-5">
         <button
-          className="btn btn-sm btn-outline btn-success"
+          className="btn btn-sm btn-outline btn-success top-5"
           onClick={addHandler}
         >
           <FontAwesomeIcon icon={faPlus} />
         </button>
-        <strong>{count}</strong>
+        <strong className="top-5">{count}</strong>
         <button
-          className="btn btn-sm btn-outline btn-error"
+          className="btn btn-sm btn-outline btn-error top-5"
           onClick={resHandler}
         >
           <FontAwesomeIcon icon={faMinus} />
