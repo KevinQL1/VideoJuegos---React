@@ -25,12 +25,27 @@ const ItemCount = ({ alertGames }) => {
       swal(
         `Agregaste ${count} producto(s) de ${alertGames.name}. Total de su compra es: $${suma}.000 COP`,
         {
-          icon: "success",    
-          buttons: "Realizar compra", 
+          icon: "success",
+          buttons: {
+            cancel: "Volver",
+            catch: {
+              text: "Realizar Compra!",
+              value: "catch",
+            },
+            defeat: "Ver catálogo!",
+          },
         }
-      ).then(() =>{
-        window.location = "http://localhost:3000/cart"
-      })
+      ).then((value) => {
+        switch (value) {
+          case "defeat":
+            window.location = "http://localhost:3000/catalogo";
+            break;
+          case "catch":
+            window.location = "http://localhost:3000/cart";
+            break;
+          default:
+        }
+      });
     }
     if (count === 12) {
       const sumaPromocion = (suma * 25) / 100;
@@ -39,11 +54,26 @@ const ItemCount = ({ alertGames }) => {
         `Agregaste ${count} producto(s) de ${alertGames.name}. Optienes un descuento del 25% en el total de su compra, que es: $${descuento}.000 COP`,
         {
           icon: "success",
-          buttons: "Realizar compra",
+          buttons: {
+            cancel: "Volver",
+            catch: {
+              text: "Realizar Compra!",
+              value: "catch",
+            },
+            defeat: "Ver catálogo!",
+          },
         }
-      ).then(() =>{
-        window.location = "http://localhost:3000/cart"
-      })
+      ).then((value) => {
+        switch (value) {
+          case "defeat":
+            window.location = "http://localhost:3000/catalogo";
+            break;
+          case "catch":
+            window.location = "http://localhost:3000/cart";
+            break;
+          default:
+        }
+      });
     }
   };
 
