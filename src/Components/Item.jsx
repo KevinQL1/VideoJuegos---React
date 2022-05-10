@@ -12,7 +12,7 @@ const Item = ({ videoGames }) => {
       <div style={estilos} className="menu-horizontal mt-14">
         <div
           style={{ width: "30rem" }}
-          className="card mx-auto mt-20 mb-20 bg-indigo-300 shadow-lg glass"
+          className="card mx-auto mt-20 mb-20 bg-indigo-300 shadow-lg glass overflow-auto"
         >
           <figure>
             <img

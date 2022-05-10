@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Cart = () => {
-  return (
-    <strong style={{top: "50rem"}}>Carrito</strong>
-  )
-}
+  return <div>Cart</div>;
+};
 
-export default Cart
+export default Cart;

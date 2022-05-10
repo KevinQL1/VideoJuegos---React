@@ -2,10 +2,15 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import { useCartContext } from "./Context/CartContext";
+import { useAppContext } from "./Context/AppContext";
 import swal from "sweetalert";
 
-const ItemCount = ({ alertGames }) => {
+const ItemCount = ({ onAdd, id }) => {
   const [count, setCount] = useState(1);
+
+  const { addItem } = useCartContext();
+  const { products } = useAppContext();
 
   const addHandler = () => {
     if (count < 12) {
@@ -19,62 +24,14 @@ const ItemCount = ({ alertGames }) => {
     }
   };
 
-  const onAdd = () => {
-    const suma = count * alertGames.price;
-    if (count >= 1 && count <= 11) {
-      swal(
-        `Agregaste ${count} producto(s) de ${alertGames.name}. Total de su compra es: $${suma}.000 COP`,
-        {
-          icon: "success",
-          buttons: {
-            cancel: "Volver",
-            catch: {
-              text: "Realizar Compra!",
-              value: "catch",
-            },
-            defeat: "Ver catálogo!",
-          },
-        }
-      ).then((value) => {
-        switch (value) {
-          case "defeat":
-            window.location = "http://localhost:3000/catalogo";
-            break;
-          case "catch":
-            window.location = "http://localhost:3000/cart";
-            break;
-          default:
-        }
-      });
+  const handleClick = (id, cantidad) => {
+    const findProduct = products.find((prod) => prod.id === id);
+    if (!findProduct) {
+      swal("Error en la base de datos");
+      return;
     }
-    if (count === 12) {
-      const sumaPromocion = (suma * 25) / 100;
-      const descuento = suma - sumaPromocion;
-      swal(
-        `Agregaste ${count} producto(s) de ${alertGames.name}. Optienes un descuento del 25% en el total de su compra, que es: $${descuento}.000 COP`,
-        {
-          icon: "success",
-          buttons: {
-            cancel: "Volver",
-            catch: {
-              text: "Realizar Compra!",
-              value: "catch",
-            },
-            defeat: "Ver catálogo!",
-          },
-        }
-      ).then((value) => {
-        switch (value) {
-          case "defeat":
-            window.location = "http://localhost:3000/catalogo";
-            break;
-          case "catch":
-            window.location = "http://localhost:3000/cart";
-            break;
-          default:
-        }
-      });
-    }
+    addItem(findProduct, cantidad);
+    onAdd(count);
   };
 
   return (
@@ -94,7 +51,10 @@ const ItemCount = ({ alertGames }) => {
           <FontAwesomeIcon icon={faMinus} />
         </button>
       </div>
-      <button className="btn btn-sm btn-outline btn-primary" onClick={onAdd}>
+      <button
+        className="btn btn-sm btn-outline btn-primary"
+        onClick={() => handleClick(id, count)}
+      >
         Agregar al Carrito
       </button>
     </>

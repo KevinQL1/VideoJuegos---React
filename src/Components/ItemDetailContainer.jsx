@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-      <ItemDetail findGames={ gamesDetail } />
+      <ItemDetail findGames={gamesDetail} />
     </div>
   );
 };

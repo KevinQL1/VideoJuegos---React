@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Item from "./Item";
 import { dataGames } from "../data/dataGames";
+import Spinner from "./Spinner";
 
 const ItemListContainer = () => {
   const [games, setGames] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getGames();
@@ -12,18 +14,19 @@ const ItemListContainer = () => {
   const getGames = () => {
     const getGamesPromise = new Promise((resolve) => {
       setTimeout(() => {
-        resolve( dataGames )
-      }, 2000);
+        setLoading(false);
+        resolve(dataGames);
+      }, 2500);
     });
 
-    getGamesPromise.then((data) =>{
+    getGamesPromise.then((data) => {
       setGames(data);
-    })
+    });
   };
 
   return (
     <div>
-      {games.map((products) => (
+      {loading ? <Spinner></Spinner> : games.map((products) => (
         <Item videoGames={products} key={products.id} />
       ))}
     </div>
