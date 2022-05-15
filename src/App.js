@@ -5,7 +5,7 @@ import ItemListContainer from "./Components/ItemListContainer";
 import ItemDetailContainer from "./Components/ItemDetailContainer";
 import CartContextProvider from "./Components/Context/CartContext";
 import AppContextProvaider from "./Components/Context/AppContext";
-import Cart from "./Components/Cart";
+import ItemCartList from "./Components/ItemCartList";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
               path="/catalogo/:gamesId"
               element={<ItemDetailContainer />}
             />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<ItemCartList />} />
           </Routes>
         </BrowserRouter>
       </CartContextProvider>

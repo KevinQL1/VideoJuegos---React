@@ -27,17 +27,14 @@ const CartContextProvider = ({ children }) => {
   };
 
   const removeItem = (product) => {
-    const newCart = [...cartItems];
     const productIsInCart = isInCart(product.id);
 
     if (!productIsInCart) {
       return;
     }
+    const deleteFromCart = cartItems.filter((prod) => prod.id !== product.id);
 
-    const deleteProduct = newCart.filter(
-      (prod) => prod.id !== product.id
-    );
-    setCartItems(deleteProduct);
+    setCartItems(deleteFromCart);
   };
 
   const clearCart = () => setCartItems([]);

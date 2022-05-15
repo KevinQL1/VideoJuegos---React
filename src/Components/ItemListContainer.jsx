@@ -26,7 +26,7 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      {loading ? <Spinner></Spinner> : games.map((products) => (
+      {loading ? <Spinner/> : games.map((products) => (
         <Item videoGames={products} key={products.id} />
       ))}
     </div>
