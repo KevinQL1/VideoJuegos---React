@@ -35,7 +35,6 @@ const NavBar = () => {
             </li>
             <li>
               <div className="flex-none">
-                <span>Carrito</span>
                 <div className="dropdown dropdown-end">
                   <label tabindex="0" className="btn btn-ghost btn-circle">
                     <div className="indicator">

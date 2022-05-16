@@ -27,11 +27,6 @@ const CartContextProvider = ({ children }) => {
   };
 
   const removeItem = (id) => {
-    const productIsInCart = isInCart(id);
-
-    if (!productIsInCart) {
-      return;
-    }
     const deleteFromCart = cartItems.filter((prod) => prod.id !== id);
 
     setCartItems(deleteFromCart);

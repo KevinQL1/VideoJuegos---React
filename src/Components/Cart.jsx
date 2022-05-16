@@ -3,9 +3,7 @@ import { useCartContext } from "./Context/CartContext";
 const Cart = ({ itemCart }) => {
   const { id, img, name, price, quantity } = itemCart;
   const { removeItem } = useCartContext();
-
-  console.log(removeItem(id));
-
+  
   return (
     <>
       <tbody>

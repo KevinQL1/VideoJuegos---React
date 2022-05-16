@@ -1,7 +1,7 @@
 export const dataGames = [
   {
     id: "1",
-    img: "https://www.somosxbox.com/wp-content/uploads/2022/03/modo-historia-de-GTA-V-790x444.jpg",
+    img: "https://i.blogs.es/dfbccc/trucosgtavps4/1366_2000.jpg",
     name: "Grand Theft Auto V",
     price: "100.000",
     description:
@@ -28,7 +28,7 @@ export const dataGames = [
     price: "150.000",
     description:
       "Es un juego de rol de un solo jugador desarrollado por Bethesda name Studios y publicado por Bethesda Softworks. Se trata de la quinta entrega de la serie de juegos de rpg/fantasía de The Elder Scrolls, y sigue a The Elder Scrolls IV: Oblivion en aproximadamente 200 años después de la historia del mismo, durante la Cuarta Era.",
-    genres: "Rol y acción, o ARPG",
+    genres: "Rol y acción, o ARPG.",
     plataformas: "PC, PlayStation, Xbox, Nintendo.",
     lenguage: "Ingles y español.",
   },
