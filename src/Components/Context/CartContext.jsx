@@ -34,8 +34,6 @@ const CartContextProvider = ({ children }) => {
 
   const clearCart = () => setCartItems([]);
 
-  console.log(cartItems);
-
   return (
     <>
       <CartContext.Provider
