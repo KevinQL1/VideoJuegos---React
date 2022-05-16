@@ -4,7 +4,7 @@ const Cart = ({ itemCart }) => {
   const { id, img, name, price, quantity } = itemCart;
   const { removeItem } = useCartContext();
 
-  console.log(removeItem(itemCart));
+  console.log(removeItem(id));
 
   return (
     <>
@@ -26,7 +26,7 @@ const Cart = ({ itemCart }) => {
           <td>{quantity}</td>
           <td className="font-bold">{price}</td>
           <td className="font-bold">
-            <button className="btn btn-sm btn-outline btn-primary" onClick={() => removeItem(itemCart)}>
+            <button className="btn btn-sm btn-outline btn-primary" onClick={() => removeItem(id)}>
               Eliminar producto
             </button>
           </td>

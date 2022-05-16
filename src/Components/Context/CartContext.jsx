@@ -26,13 +26,13 @@ const CartContextProvider = ({ children }) => {
     setCartItems([...newCart, product]);
   };
 
-  const removeItem = (product) => {
-    const productIsInCart = isInCart(product.id);
+  const removeItem = (id) => {
+    const productIsInCart = isInCart(id);
 
     if (!productIsInCart) {
       return;
     }
-    const deleteFromCart = cartItems.filter((prod) => prod.id !== product.id);
+    const deleteFromCart = cartItems.filter((prod) => prod.id !== id);
 
     setCartItems(deleteFromCart);
   };
