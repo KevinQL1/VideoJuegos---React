@@ -1,34 +1,29 @@
 import { useEffect, useState } from "react";
 import Item from "./Item";
-import { dataGames } from "../data/dataGames";
 import Spinner from "./Spinner";
+import { useAppContext } from "./Context/AppContext";
 
 const ItemListContainer = () => {
-  const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [itemsList, setItemsList] = useState([]);
+  const { products } = useAppContext();
 
   useEffect(() => {
-    getGames();
-  }, []);
-
-  const getGames = () => {
-    const getGamesPromise = new Promise((resolve) => {
       setTimeout(() => {
         setLoading(false);
-        resolve(dataGames);
+        setItemsList(
+          products.map((items) => ({ id: items.id, ...items }))
+        );
       }, 2500);
-    });
-
-    getGamesPromise.then((data) => {
-      setGames(data);
-    });
-  };
+  }, [products]);
 
   return (
     <div>
-      {loading ? <Spinner/> : games.map((products) => (
-        <Item videoGames={products} key={products.id} />
-      ))}
+      {loading ? (
+        <Spinner />
+      ) : (
+        itemsList.map((prod) => <Item videoGames={prod} key={prod.id} />)
+      )}
     </div>
   );
 };

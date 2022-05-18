@@ -21,7 +21,7 @@ const CartWidget = () => {
   return (
     <>
       {!cartOpen && productsLength ? (
-        <table className="table table-compact table-bg-indigo-300">
+        <table className="table table-compact table-bg-indigo-300 overflow-auto">
           <thead>
             <tr>
               <th className="bg-indigo-300">product</th>
@@ -39,7 +39,7 @@ const CartWidget = () => {
           <tfoot>
             <tr>
               <th className="bg-indigo-300">TOTAL:</th>
-              <th className="bg-indigo-300">${total}.000 COP</th>
+              <th className="bg-indigo-300">${total} COP</th>
             </tr>
           </tfoot>
         </table>

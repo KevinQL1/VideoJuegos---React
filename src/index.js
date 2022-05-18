@@ -11,8 +11,7 @@ const firebaseConfig = {
   projectId: "videojuegosluxury",
   storageBucket: "videojuegosluxury.appspot.com",
   messagingSenderId: "27517043494",
-  appId: "1:27517043494:web:a4d001e93032881079b7e7",
-  measurementId: "G-7FGCCY6MER"
+  appId: "1:27517043494:web:a4d001e93032881079b7e7"
 };
 
 initializeApp(firebaseConfig);

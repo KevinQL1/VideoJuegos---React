@@ -1,16 +1,24 @@
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { dataGames } from "../data/dataGames";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
   const { gamesId } = useParams();
-  const [gamesDetail, setGamesDetail] = useState({});
+  const [gamesDetail, setGamesDetail] = useState([]);
+
 
   useEffect(() => {
-    setGamesDetail(dataGames.find((idFind) => idFind.id === gamesId));
+    const db = getFirestore();
+
+    const itemColletion = collection(db, "Products");
+    getDocs(itemColletion).then((snapshot) => {
+      setGamesDetail(snapshot.docs.find((idFind) => idFind.id === gamesId));
+    });
+
   }, [gamesId]);
 
+  console.log(gamesDetail);
   return (
     <div>
       <ItemDetail findGames={gamesDetail} />

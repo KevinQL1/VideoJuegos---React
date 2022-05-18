@@ -64,7 +64,7 @@ const ItemCartList = () => {
                 <tfoot>
                   <tr>
                     <th className="bg-indigo-300"></th>
-                    <th className="bg-indigo-300">TOTAL: ${total}.000 COP</th>
+                    <th className="bg-indigo-300">TOTAL: ${total} COP</th>
                     <th className="bg-indigo-300"></th>
                     <th className="bg-indigo-300"></th>
                     <th className="bg-indigo-300">

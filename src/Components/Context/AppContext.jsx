@@ -1,5 +1,5 @@
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { dataGames } from "../../data/dataGames";
 
 const AppContext = createContext();
 
@@ -10,19 +10,18 @@ const AppContextProvaider = ({ children }) => {
 
   useEffect(() => {
     const getItemProducts = () => {
-      const getItemPromise = new Promise((resolve) => {
-        resolve(dataGames);
-      });
-  
-      getItemPromise.then((data) => {
-        setProducts(data);
+      const db = getFirestore();
+
+      const itemColletion = collection(db, "Products");
+      getDocs(itemColletion).then((snapshot) => {
+        setProducts(
+          snapshot.docs.map((idFind) => ({ id: idFind.id, ...idFind.data() }))
+        );
       });
     };
-    
-    getItemProducts();
-  });
 
-  
+    getItemProducts();
+  }, []);
 
   return (
     <AppContext.Provider value={{ products }}>{children}</AppContext.Provider>
