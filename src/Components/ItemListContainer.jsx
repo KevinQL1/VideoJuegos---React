@@ -14,7 +14,7 @@ const ItemListContainer = () => {
         setItemsList(
           products.map((items) => ({ id: items.id, ...items }))
         );
-      }, 2500);
+      }, 2000);
   }, [products]);
 
   return (
