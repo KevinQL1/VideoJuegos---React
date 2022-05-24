@@ -3,7 +3,7 @@ import { useCartContext } from "./Context/CartContext";
 const Cart = ({ itemCart }) => {
   const { id, img, name, price, quantity } = itemCart;
   const { removeItem } = useCartContext();
-  
+
   return (
     <>
       <tbody>
@@ -24,7 +24,11 @@ const Cart = ({ itemCart }) => {
           <td>{quantity}</td>
           <td className="font-bold">{price}</td>
           <td className="font-bold">
-            <button className="btn btn-sm btn-outline btn-primary" onClick={() => removeItem(id)}>
+            <button
+              className="btn btn-sm btn-outline btn-primary"
+              onClick={() => removeItem(id)}
+              value={id}
+            >
               Eliminar producto
             </button>
           </td>

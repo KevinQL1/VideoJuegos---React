@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const ItemCartList = () => {
   const [newCartProduct, setNewCartProduct] = useState([]);
-  const { clearCart, cartItems } = useCartContext();
+  const { clearCart, cartItems, saveCartItem } = useCartContext();
 
   useEffect(() => {
     const getGamesCart = () => {
@@ -66,7 +66,14 @@ const ItemCartList = () => {
                     <th className="bg-indigo-300"></th>
                     <th className="bg-indigo-300">TOTAL: ${total} COP</th>
                     <th className="bg-indigo-300"></th>
-                    <th className="bg-indigo-300"></th>
+                    <th className="bg-indigo-300">
+                      <button
+                        className="btn btn-sm btn-outline btn-primary"
+                        onClick={saveCartItem}
+                      >
+                        Realizar compra
+                      </button>
+                    </th>
                     <th className="bg-indigo-300">
                       <button
                         className="btn btn-sm btn-outline btn-error"
