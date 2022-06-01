@@ -9,12 +9,12 @@ import ItemCartList from "./Components/ItemCartList";
 
 function App() {
   return (
-    <AppContextProvaider>
+  <AppContextProvaider>
       <CartContextProvider>
         <BrowserRouter>
           <NavBar />
           <Routes>
-            <Route path="/VideoJuegos" element={<ItemListContainer />} />
+            <Route path="/" element={<ItemListContainer />} />
             <Route path="/catalogo" element={<ItemListContainer />} />
             <Route
               path="/catalogo/:gamesId"

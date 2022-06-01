@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 
 const ItemCartList = () => {
   const [newCartProduct, setNewCartProduct] = useState([]);
-  const { clearCart, cartItems, saveCartItem, handleSubmitChangeUser, user } =
-    useCartContext();
+  const { clearCart, cartItems, saveCartItem } = useCartContext();
 
   useEffect(() => {
     const getGamesCart = () => {
@@ -46,114 +45,47 @@ const ItemCartList = () => {
           </div>
         </div>
       ) : (
-        <div className="mt-32 mx-10 mb-10 bg-indigo border border-indigo-300 rounded-md p-8 overflow-hidden">
-          <form>
-            <label className="block">
-              <span className="block text-sm font-medium text-slate-700">
-                Nombre completo:
-              </span>
-              <input
-                id="nameUser"
-                name="nameUser"
-                type="text"
-                onChange={handleSubmitChangeUser}
-                required
-                placeholder="Ingresa tu nombre completo "
-                className="bg-indigo border border-indigo-300 rounded-md text-sm shadow-sm placeholder-indigo-400 w-full pb-1"
-              />
-            </label>
-            <label className="block mt-6">
-              <span className="block text-sm font-medium text-slate-700">
-                Teléfono:
-              </span>
-              <input
-                id="telephone"
-                name="telephone"
-                type="tel"
-                onChange={handleSubmitChangeUser}
-                required
-                placeholder="Ingresa un teléfono"
-                className="bg-indigo border border-indigo-300 rounded-md text-sm shadow-sm placeholder-indigo-400 w-full pb-1"
-              />
-            </label>
-            <label className="block mt-6">
-              <span className="block text-sm font-medium text-slate-700">
-                Dirección de envío:
-              </span>
-              <input
-                id="address"
-                name="address"
-                type="text"
-                onChange={handleSubmitChangeUser}
-                required
-                placeholder="Ingresa dirección de envío"
-                className="bg-indigo border border-indigo-300 rounded-md text-sm shadow-sm placeholder-indigo-400 w-full pb-1"
-              />
-            </label>
-            <label className="block mt-6">
-              <span className="block text-sm font-medium text-slate-700">
-                Email:
-              </span>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                onChange={handleSubmitChangeUser}
-                required
-                placeholder="Ingersa correo electrónico"
-                className="bg-indigo border border-indigo-300 rounded-md text-sm shadow-sm placeholder-indigo-400 w-full pb-1"
-              />
-            </label>
-          </form>
-          <div className="overflow-x-auto my-10">
-            <table className="table table-compact table-bg-indigo-300 w-full">
-              <thead>
-                <tr>
-                  <th className="bg-indigo-300">#id</th>
-                  <th className="bg-indigo-300">Name</th>
-                  <th className="bg-indigo-300">Quantity</th>
-                  <th className="bg-indigo-300">Price</th>
-                  <th className="bg-indigo-300"></th>
-                </tr>
-              </thead>
-              {newCartProduct.map((products) => (
-                <Cart key={products.id} itemCart={products} />
-              ))}
-              <tfoot>
-                <tr>
-                  <th className="bg-indigo-300"></th>
-                  <th className="bg-indigo-300">TOTAL: ${total} COP</th>
-                  <th className="bg-indigo-300"></th>
-                  <th className="bg-indigo-300"></th>
-                  <th className="bg-indigo-300">
-                    <button
-                      className="btn btn-sm btn-outline btn-error"
-                      onClick={clearCart}
-                    >
-                      Vaciar carrito
-                    </button>
-                  </th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          <div className="flex justify-around">
-            <Link
-              to="/VideoJuegos"
-              className="btn btn-sm btn-outline btn-primary"
-            >
-              Volver al inicio
-            </Link>
-            {user.email === "" || user.nameUser === "" || user.address === "" || user.telephone === ""  ? (
-              <div></div>
-            ) : (
-              <button
-                className="btn btn-sm btn-outline btn-primary"
-                onClick={saveCartItem}
-              >
-                Pagar
-              </button>
-            )}
+        <div>
+          <div className="mx-10 -z-50">
+            <div className="overflow-x-auto my-52 w-full">
+              <table className="table table-compact table-bg-indigo-300 w-full">
+                <thead>
+                  <tr>
+                    <th className="bg-indigo-300">#id</th>
+                    <th className="bg-indigo-300">Name</th>
+                    <th className="bg-indigo-300">Quantity</th>
+                    <th className="bg-indigo-300">Price</th>
+                    <th className="bg-indigo-300"></th>
+                  </tr>
+                </thead>
+                {newCartProduct.map((products) => (
+                  <Cart key={products.id} itemCart={products} />
+                ))}
+                <tfoot>
+                  <tr>
+                    <th className="bg-indigo-300"></th>
+                    <th className="bg-indigo-300">TOTAL: ${total} COP</th>
+                    <th className="bg-indigo-300"></th>
+                    <th className="bg-indigo-300">
+                      <button
+                        className="btn btn-sm btn-outline btn-primary"
+                        onClick={saveCartItem}
+                      >
+                        Realizar compra
+                      </button>
+                    </th>
+                    <th className="bg-indigo-300">
+                      <button
+                        className="btn btn-sm btn-outline btn-error"
+                        onClick={clearCart}
+                      >
+                        Vaciar carrito
+                      </button>
+                    </th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
           </div>
         </div>
       )}

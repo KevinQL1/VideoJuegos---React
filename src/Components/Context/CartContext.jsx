@@ -16,12 +16,6 @@ export const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  const [user, setUser] = useState({
-      nameUser: "",
-      telephone: "",
-      address: "",
-      email: "",
-  });
   const [band, setBand] = useState(true);
   const db = getFirestore();
   const itemColletion = collection(db, "Orders");
@@ -106,10 +100,6 @@ const CartContextProvider = ({ children }) => {
     setCartItems([]);
   };
 
-  const handleSubmitChangeUser = (eventUser) => {
-    setUser({ ...user, [eventUser.target.name]: eventUser.target.value })
-}
-
   const saveCartItem = async () => {
     const total = cartItems.reduce(
       (previous, current) => previous + current.quantity * current.price,
@@ -117,6 +107,11 @@ const CartContextProvider = ({ children }) => {
     );
     let date = new Date();
 
+    const user = {
+      name: "Kevin",
+      phone: "1234",
+      email: "Kevin@gmail.com",
+    };
 
     const itemsOrders = cartItems.map((item) => ({
       id: item.id,
@@ -162,8 +157,6 @@ const CartContextProvider = ({ children }) => {
           removeItem,
           clearCart,
           saveCartItem,
-          user,
-          handleSubmitChangeUser,
         }}
       >
         {children}
