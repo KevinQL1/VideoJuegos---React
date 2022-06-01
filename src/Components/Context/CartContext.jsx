@@ -16,6 +16,12 @@ export const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [user, setUser] = useState({
+    nameUser: "",
+    telephone: "",
+    address: "",
+    email: "",
+});
   const [band, setBand] = useState(true);
   const db = getFirestore();
   const itemColletion = collection(db, "Orders");
@@ -50,6 +56,10 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
+  const handleSubmitChangeUser = (eventUser) => {
+    setUser({ ...user, [eventUser.target.name]: eventUser.target.value })
+}
+
   const removeItem = async (product) => {
     const deleteFromCart = cartItems.filter((prod) => prod.id !== product);
 
@@ -61,7 +71,6 @@ const CartContextProvider = ({ children }) => {
             const item = doc(db, "Orders", e.id);
             if (find.id === product) {
               if (item.id === product) {
-                console.log(e);
                 deleteDoc(item)
               }
             }
@@ -157,6 +166,8 @@ const CartContextProvider = ({ children }) => {
           removeItem,
           clearCart,
           saveCartItem,
+          user,
+          handleSubmitChangeUser,
         }}
       >
         {children}

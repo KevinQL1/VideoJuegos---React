@@ -31,7 +31,7 @@ const CartWidget = () => {
           </thead>
           <tbody>
             {cartItems.map((products) => (
-              <tr>
+              <tr key={products.id}>
                 <td className="font-bold bg-gray-300"><img src={products.img} alt="Juegos Agregados"/></td>
                 <td className="font-bold bg-gray-300">${products.price} COP</td>
               </tr>

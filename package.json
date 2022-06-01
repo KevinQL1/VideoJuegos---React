@@ -20,6 +20,8 @@
     "tw-elements": "^1.0.0-alpha12",
     "web-vitals": "^2.1.4"
   },
+
+  "homepage": "http://www.gamestheluxe.com.co",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
