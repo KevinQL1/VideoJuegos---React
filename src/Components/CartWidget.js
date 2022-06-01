@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useCartContext } from "./Context/CartContext";
 
 const CartWidget = () => {
+  // eslint-disable-next-line
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
 
