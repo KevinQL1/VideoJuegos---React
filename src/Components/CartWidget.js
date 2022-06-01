@@ -21,7 +21,8 @@ const CartWidget = () => {
   return (
     <>
       {!cartOpen && productsLength ? (
-        <table className="table table-compact table-bg-indigo-300 overflow-auto">
+        <div className="overflow-x-auto">
+        <table className="table table-compact table-bg-indigo-300 ">
           <thead>
             <tr>
               <th className="bg-indigo-300">product</th>
@@ -30,9 +31,9 @@ const CartWidget = () => {
           </thead>
           <tbody>
             {cartItems.map((products) => (
-              <tr>
-                <td className="font-bold bg-gray-300"><img src={products.img} alt="Juegos Agregados"/></td>
-                <td className="font-bold bg-gray-300">${products.price} COP</td>
+              <tr key={products.id}>
+                <td className="font-bold bg-gray-300" ><img src={products.img} alt="Juegos Agregados"/></td>
+                <td className="font-bold bg-gray-300" >${products.price} COP</td>
               </tr>
             ))}
           </tbody>
@@ -43,6 +44,7 @@ const CartWidget = () => {
             </tr>
           </tfoot>
         </table>
+        </div>
       ) : (
         <div className="rounded-xl w-36 h-8 py-1 bg-indigo-300 text-center">
           <p>Tu carrito esta vacio</p>

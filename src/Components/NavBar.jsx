@@ -22,13 +22,13 @@ const NavBar = () => {
       >
         <div className="flex-1">
           <button href="#" className="btn btn-outline normal-case text-lg">
-            <Link to={"/"}>VideoJuegos</Link>
+            <Link to={"/VideoJuegos"}>VideoJuegos</Link>
           </button>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0 pl-3">
             <li>
-              <Link to={"/"}>Inicio</Link>
+              <Link to={"/VideoJuegos"}>Inicio</Link>
             </li>
             <li>
               <Link to={"/catalogo"}>Catálogo</Link>
@@ -36,7 +36,7 @@ const NavBar = () => {
             <li>
               <div className="flex-none">
                 <div className="dropdown dropdown-end">
-                  <label tabindex="0" className="btn btn-ghost btn-circle">
+                  <label tabIndex="0" className="btn btn-ghost btn-circle">
                     <div className="indicator">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
