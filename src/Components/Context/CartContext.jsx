@@ -116,12 +116,6 @@ const CartContextProvider = ({ children }) => {
     );
     let date = new Date();
 
-    const user = {
-      name: "Kevin",
-      phone: "1234",
-      email: "Kevin@gmail.com",
-    };
-
     const itemsOrders = cartItems.map((item) => ({
       id: item.id,
       title: item.name,
