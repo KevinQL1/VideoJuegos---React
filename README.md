@@ -8,7 +8,7 @@
 
 * **Desarrollado por la estudiante:** Kevin Alexander Quintero Londoño
 
-* **Proyecto final:** 
+* **Proyecto final:** http://www.gamestheluxe.com.co/
 
 ## Fundamentación
 
